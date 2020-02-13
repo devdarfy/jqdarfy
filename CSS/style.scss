@@ -1,0 +1,454 @@
+@font-face {
+    font-family:"helvetica";
+    src:url("../Font/HelveticaNeueLTPro-Bd.otf");
+    src:url("../Font/HelveticaNeueLTPro-Lt.otf");
+    src:url("../Font/HelveticaNeueLTPro-Md.otf");
+    src:url("../Font/HelveticaNeueLTPro-Roman.otf");
+    src:url("../Font/HelveticaNeueLTPro-Th.otf");
+    src:url("../Font/NeueBold.otf");
+}
+$decoration: none;
+$a-color: white;
+$px: 35px;
+$center: center;
+$font: "helvetica";
+$marpad: 0px;
+$sans: sans-serif;
+$bold: bolder;
+$border: 2px solid black;
+$posrelav: relative;
+$mborder: 1px solid #666666;
+
+%section {
+    background-color:#E8E8E8;
+    color:#D8D8D8;
+    border-radius:20px;
+    border:$mborder;
+    font-family:$font; 
+}
+%discordbutton {
+    -webkit-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+}
+%discord {
+    width:340px;
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+}
+%text {
+    font-size:18px;
+    position:relative;
+}
+%loader {
+    position:absolute;
+    border: 5px solid transparent;
+    border-radius: 50%;
+}
+body, html {
+    margin:$marpad;
+    padding:$marpad;
+    background-color:#D8D8D8;
+    /*
+    background: url("../Images/1.svg") no-repeat;
+    background-size:100%;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    */
+}
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select:none;
+}
+.header {
+    background-color:#333;
+    height:65px;
+
+    .social {
+        margin-right:20px;
+        width : $px;
+        height: $px;
+        position:$posrelav;
+        top:15px;
+    }
+    .title {
+        text-decoration: $decoration;
+        color:$a-color;
+        font-size:30px;
+        font-weight:$bold;
+        font-family:$sans;
+        position:$posrelav;
+        top:11px;
+        left:21px;
+    
+        a {
+            color:$a-color;
+            text-decoration: $decoration;
+        }
+    }
+}
+.navbar {
+    background-color:#222222;
+    span {
+
+        a {
+            color:$a-color;
+            text-decoration:$decoration;
+            padding:20px 20px;
+            font-family:$font;
+        }
+
+    }
+    li {
+        list-style-type:none;
+    }
+}
+.shrink {
+    padding: 20px 20px;
+}
+ul {
+    margin: $marpad;
+    padding: $marpad;
+    overflow: hidden;
+    position:relative;
+    list-style-type: none;
+
+    li {
+        float:left;
+        line-height: 30px;
+
+        a {
+            color:$a-color;
+            text-decoration: $decoration;
+            text-align:$center;
+            padding:15px;
+            display:block;
+        }
+    }
+}
+.dropdown {
+    float: left;
+    font-family:$font;
+
+    &:hover {
+        .dropdown-content {
+            display:block;
+        }
+    }
+
+    .dropbtn {
+        font-size: 16px;    
+        border:none;
+        color: white;
+        padding: 20px 20px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow-y: scroll;
+    height:90px;
+    min-width: 80px;
+    line-height:45px;
+
+    a {
+        float: none;
+        color: black;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+
+        &:hover {
+            background-color:#161616e3;
+            color:white;
+        }
+    }
+}
+.notification {
+    
+    position:relative;
+    borde-radius : 2px;
+
+    .badge {
+        position:absolute;
+        top:15px;
+        right:10px;
+        width:12px;
+        height:12px;
+        border-radius: 50%;
+        background-color:red;
+        color:$a-color;
+    }
+}
+/* input[type=text] {
+    margin-top:8px;
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid $a-color;
+    color:$a-color;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #232323;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    background-image:url("../Images/searchicon.png");
+    padding: 12px 15px 12px 50px;
+    -webkit-transition: width 0.7s ease-in-out;
+    transition: width 0.7s easein-out;
+    &:focus {
+        width:250px;
+    }
+} */
+.pics {
+    border:$mborder;
+    border-radius:10%;
+}
+.section1 {
+    @extend %section;
+    padding:20px;
+
+        li {
+            list-style-type: square;
+            font-size:20px;
+            line-height:30px;
+        }
+
+    .abouttitle {
+        font-family:$font;
+        font-size:18px;
+        margin-left:30px;
+        margin-top:30px;
+        position:relative;
+        bottom:25px;
+        z-index:1;
+        color:black;
+        display:inline-block;
+
+        span {
+            font-weight: $bold;
+            line-height: 30px;
+            font-size: 20px;
+        }
+    }
+    .abouttext {
+        font-family:$font;
+        display:inline-block;
+        font-size:18px;
+        line-height:25px;
+        color:black;
+    }
+    
+    p {
+        a {
+            text-decoration:$decoration;
+            color:red;
+        
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+}
+.section2 {
+    margin-top:50px;
+    padding:20px;
+    font-family:$font;
+    @extend %section;
+
+    .text {
+        font-size:18px;
+        line-height:25px;
+        color:black;
+    }
+    .title {
+        font-size: 20px;
+        font-weight: $bold;
+        color:black;
+    }
+}
+.discord {
+    @extend %discord;
+    margin-top:50px;
+    background-color:#7289da;
+    height:70px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.discord2 {
+    @extend %discord;
+    color:white;
+    font-family:"helvetica";
+    background-color:#1e2124;
+    height:230px;
+}
+.discord3 {
+    @extend %discord;
+    height:60px;
+    background-color:#1e2124;
+    border-top:1px solid black;
+    margin-bottom:50px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.discord3button {
+    margin-top:10px;
+    margin-left:105px;
+    width:130px;
+    height:30px;
+    background-color:#222222;
+    border:$border;
+    border-radius:5px;
+    font-family:$font;
+    line-height: 30px;
+    @extend %discordbutton;
+
+    &:hover {
+        @extend %discordbutton;
+        background-color:#333333 ;
+    }
+}
+.text1 {
+    @extend %text;
+    left:30px;
+    top:20px;
+}
+.text2 {
+    @extend %text;
+    top:10px;
+}
+.text3 {
+    @extend %text;
+    right:30px;
+    top:20px;
+}
+.footer {
+    position:$posrelav;
+    bottom:0px;
+    background-color: #222222;
+    font-family:$sans;
+}
+.footertext {
+    color:#A1A1A1;
+    line-height: 50px;
+    font-size:14px;
+    text-align:$center;
+}
+.textWithBlurredBg{
+    width:200px;
+    height:auto;
+    display:inline-block;
+    position:relative;
+    transition:.2s;
+    margin:4px;
+  }
+  .textWithBlurredBg img{
+    width:100%;
+    height:100%;
+    transition:.3s;
+    border-radius:4px;
+  }
+  .textWithBlurredBg:hover img{
+    filter:blur(5px) brightness(50%);
+    box-shadow:0 0 20px 0px cyan;
+  }
+  .textWithBlurredBg:hover {
+    box-shadow:0 0 20px 0px cyan;
+  }
+  .textWithBlurredBg :not(img){
+    position:absolute;
+    z-index:1;
+    top:30%;
+    width:100%;
+    text-align:center;
+    color:#fff;
+    opacity:0;
+    transition:.2s;
+  }
+  .textWithBlurredBg h3{
+    top:50%;
+  }
+  .textWithBlurredBg:hover :not(img){
+    opacity:1;
+  }
+
+/* Section2 videolar ve discord responsive mobile */ 
+  @media screen and (min-width:370px) {
+    .textWithBlurredBg {
+        width:250px;
+    }
+}
+@media screen and (max-width:370px) {
+  %discord {
+      width:280px;
+  }
+  .discord3button {
+      width:100px;
+      position:relative;
+      right:20px;
+  }
+}
+
+  /* Loader screen */
+  .preload {
+      background-color:#232323;
+      width: 100%;
+      height : 100%;
+      position:fixed;
+      top: 0px;
+      left: 0px;
+      z-index:1;
+  }
+  .loader-frame {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      position:relative;
+  }
+  .loader1 {
+      @extend %loader;
+      width:100px;
+      height:100px;
+      border-top:5px solid plum;
+      border-bottom:5px solid red;
+      margin:350px 10px 0 0;
+      animation: clockwisespin 2s linear 3;
+  }
+  .loader2 {
+    @extend %loader;
+    width:90px;
+    height:90px;
+    border-left:5px solid greenyellow;
+    border-right:5px solid yellow;
+    top: 5px;
+    left:5px;
+    margin:350px 10px 0 0;
+    animation: anticlockwisespin 2s linear 3;
+}
+@keyframes clockwisespin {
+    from {
+        transform: rotate(0deg);}
+    to {
+        transform: rotate(360deg);}
+}
+@keyframes anticlockwisespin {
+    from {
+        transform: rotate(0deg);}
+    to {
+        transform: rotate(-360deg);}
+}
+@keyframes fadeout {
+    from {
+        opacity:1;}
+    to {
+        opacity:0;}
+}
